@@ -13,13 +13,32 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
+            background: url('Plaça_Espanya.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Adding overlay effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1;
+        }
+
+        header, #map-section, footer {
+            position: relative;
+            z-index: 2; /* To ensure content is above the overlay */
         }
 
         header {
-            background-color: #004d99;
+            background-color: rgba(0, 77, 153, 0.85);
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -56,7 +75,7 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             text-align: center;
-            color: #004d99;
+            color: #fff;
         }
 
         iframe {
@@ -71,7 +90,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #004d99;
+            background-color: rgba(0, 77, 153, 0.85);
             color: white;
             margin-top: 20px;
             position: relative;
