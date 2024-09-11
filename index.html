@@ -12,140 +12,109 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background-color: #004d99;
             color: white;
             text-align: center;
-            padding: 20px 10px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
 
         p {
             font-size: 1.2rem;
+            margin-bottom: 0;
         }
 
-        #widget-section {
+        /* Section for maps */
+        #map-section {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 20px;
+            justify-content: space-around;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .widget-container {
-            width: 32%;
-            margin-bottom: 20px;
-            background-color: white;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .widget-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .widget-container img {
+        .map-container {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            margin-bottom: 40px;
         }
 
-        .widget-container h2 {
-            margin: 15px 0;
+        /* Title for each map */
+        .map-container h2 {
             font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
             color: #004d99;
         }
 
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             background-color: #004d99;
             color: white;
+            margin-top: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Responsividad para tablets */
+        /* Responsiveness */
         @media (max-width: 768px) {
-            #widget-section {
-                padding: 10px;
-            }
-
-            .widget-container {
-                width: 48%;
-            }
-
             h1 {
                 font-size: 2rem;
             }
 
-            p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Responsividad para móviles */
-        @media (max-width: 480px) {
-            #widget-section {
-                padding: 10px;
-            }
-
-            .widget-container {
+            .map-container {
                 width: 100%;
             }
 
-            .widget-container img {
-                height: 150px;
+            iframe {
+                height: 400px;
             }
+        }
 
+        @media (max-width: 480px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
             }
 
-            p {
-                font-size: 0.9rem;
-            }
-
-            .widget-container h2 {
+            .map-container h2 {
                 font-size: 1.2rem;
             }
+
+            iframe {
+                height: 300px;
+            }
         }
 
-        /* Ajuste para pantallas más grandes */
         @media (min-width: 1200px) {
-            #widget-section {
-                max-width: 1400px;
-            }
-
-            .widget-container {
-                width: 30%;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            p {
-                font-size: 1.3rem;
+            .map-container {
+                width: 45%;
+                margin-bottom: 30px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -154,30 +123,22 @@
         <p>Análisis geoespacial de accidentes en la ciudad de Barcelona</p>
     </header>
 
-    <section id="widget-section">
-        <div class="widget-container">
-            <a href="URL_DEL_MAPA_1" target="_blank">
-                <img src="accidentes.png" alt="Mapa de accidentes por distritos">
-                <h2>Accidentes por distritos</h2>
-            </a>
+    <section id="map-section">
+        <div class="map-container">
+            <h2>Mapa 1: Accidentes por distritos</h2>
+            <iframe src="https://gis.unicef.org/portal/apps/dashboards/85fdc0fe0bd546818c88105e4efb659a" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="widget-container">
-            <a href="URL_DEL_MAPA_2" target="_blank">
-                <img src="accidentes.png" alt="Mapa de zonas con más accidentes">
-                <h2>Zonas con más accidentes</h2>
-            </a>
+        <div class="map-container">
+            <h2>Mapa 2: Intensidad de Turismo en Barcelona</h2>
+            <iframe src="https://gis.unicef.org/portal/apps/dashboards/3b9ffc486b48424c8b4d9f3b8d632e03" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="widget-container">
-            <a href="URL_DEL_MAPA_3" target="_blank">
-                <img src="accidentes.png" alt="Mapa de accidentes según hora del día">
-                <h2>Accidentes según hora del día</h2>
-            </a>
+        <div class="map-container">
+            <h2>Mapa 3: Renta media por persona</h2>
+            <iframe src="https://gis.unicef.org/portal/apps/dashboards/331b28ce40c742b9a6eb5d03e12f6213" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="widget-container">
-            <a href="URL_DEL_MAPA_4" target="_blank">
-                <img src="accidentes.png" alt="Mapa de tipos de accidentes">
-                <h2>Tipos de accidentes</h2>
-            </a>
+        <div class="map-container">
+            <h2>Mapa 4: Número de Piezas por Distrito</h2>
+            <iframe src="https://gis.unicef.org/portal/apps/dashboards/0aaa629b4f7e4c908daf5ebc3f571171" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
